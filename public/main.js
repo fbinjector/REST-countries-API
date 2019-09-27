@@ -1,9 +1,28 @@
 const name = document.querySelector(".country__value");
-const submit = document.querySelector(".submit");
 const form = document.querySelector(".input__container");
 const region = document.querySelector(".region");
 const loader = document.querySelector(".loader");
 const container = document.querySelector(".countries");
+const mode = document.querySelector(".mode");
+
+mode.addEventListener("change", function() {
+  if (this.checked) {
+    document.documentElement.setAttribute("data-theme", "dark");
+    trans();
+    document.querySelector(".modeLabel").innerHTML = "light mode";
+  } else {
+    document.documentElement.setAttribute("data-theme", "light");
+    trans();
+    document.querySelector(".modeLabel").innerHTML = "dark mode";
+  }
+});
+
+const trans = () => {
+  document.documentElement.classList.add("transition");
+  window.setTimeout(() => {
+    document.documentElement.classList.remove("transition");
+  }, 1000);
+};
 
 document.addEventListener("DOMContentLoaded", function() {
   fetchi("https://restcountries.eu/rest/v2/all");

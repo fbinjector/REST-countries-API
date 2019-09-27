@@ -9,49 +9,58 @@
 body {
   font-family: 'Nunito Sans', sans-serif;
   font-size: 10px;
-  background-color: var(--Light-Gray);
+  background-color: var(--secondary);
 }
 
-/* 
-- Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
-- Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
-- Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
-- Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
-- Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
-- White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%)
-*/
+html {
+  --tertiary: hsl(200, 15%, 8%);
+  --primary-two: hsl(0, 0%, 52%);
+  --secondary: hsl(0, 0%, 98%);
+  --primary: hsl(0, 0%, 100%);
+}
 
-:root {
-  --Dark-Blue: hsl(209, 23%, 22%);
-  --Dark-Blue: hsl(207, 26%, 17%);
-  --Dark-Blue: hsl(200, 15%, 8%);
-  --Dark-Gray: hsl(0, 0%, 52%);
-  --Light-Gray: hsl(0, 0%, 98%);
-  --White: hsl(0, 0%, 100%);
+html[data-theme="dark"] {
+  --primary: hsl(209, 23%, 22%);
+  --primary-two: hsl(0, 0%, 52%);
+  --secondary: hsl(200, 15%, 8%);
+  --tertiary: hsl(0, 0%, 100%);
+}
+
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition: all 750ms !important;
+  transition-delay: 0 !important;
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  background-color: var(--White);
+  background-color: var(--primary);
   box-shadow: 0 .3rem .2rem rgba(0, 0, 0, 0.061);
 }
 
 .nav a {
   font-size: 1.5rem;
-  color: var(--Dark-Blue);
+  color: var(--tertiary);
   font-weight: 600;
   text-decoration: none;
 }
 
 .mode {
-  border: none;
-  background-color: transparent;
-  color: var(--Dark-Blue);
+  display: none;
+}
+
+.modeLabel {
+  font-size: 1.3rem;
+  color: var(--tertiary);
   font-weight: 600;
   text-transform: capitalize;
   cursor: pointer;
+  transition: all 750ms !important;
+  transition-delay: 0 !important;
 }
 
 .mode:focus {
@@ -69,16 +78,16 @@ body {
   font-size: 1.5rem;
   width: 16rem;
   padding: .2rem;
-  background-color: var(--White);
+  background-color: var(--primary);
   border: .4px solid rgba(0, 0, 0, 0.397);
-}
-
-.input:focus {
-  outline: none;
+  color: var(--tertiary);
 }
 
 .region {
   font-size: 1rem;
+  background: var(--primary);
+  border: none;
+  color: var(--tertiary);
 }
 
 @media screen and (max-width: 416px) {
@@ -89,18 +98,9 @@ body {
   }
 }
 
-.submit {
-  background-color: transparent;
-  display: block;
-  border: 1px solid var(--Dark-Blue);
-  padding: 0 .3rem;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
 .country {
   width: 280px;
-  background-color: var(--White);
+  background-color: var(--primary);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
   margin: 4rem auto;
   border-radius: 5px;
@@ -129,13 +129,13 @@ body {
   margin: .5rem 0;
   font-size: 1rem;
   text-transform: capitalize;
-  color: var(--Dark-Blue);
+  color: var(--tertiary);
 }
 
 .country__info span,
 .country__info--hidden span {
   font-weight: 300;
-  color: var(--Dark-Gray);
+  color: var(--primary-two);
 }
 
 .show-hide {
@@ -162,11 +162,11 @@ body {
 }
 
 .border-countries li {
-  color: var(--Dark-Gray);
+  color: var(--primary-two);
   font-weight: 300;
   margin: .2rem;
-  background-color: var(--White);
-  border: 1px solid var(--Dark-Gray);
+  background-color: var(--primary);
+  border: 1px solid var(--primary-two);
   padding: .2rem .3rem;
   ;
   border-radius: 3px;
@@ -231,7 +231,7 @@ body {
   background: rgba(0, 0, 0, 0.116);
   outline-offset: unset;
   font-size: 2rem;
-  color: var(--Dark-Blue);
+  color: var(--tertiary);
 }
 
 

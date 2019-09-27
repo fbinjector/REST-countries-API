@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-theme="" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,7 +14,8 @@
   <body>
     <nav class="nav">
       <a href="index.html">Where in the world</a>
-      <button class="mode">dark mode</button>
+      <input type="checkbox" id="theme" class="mode" />
+      <label class="modeLabel" for="theme">dark mode</label>
     </nav>
     <form action="" class="input__container">
       <input type="text" class="input country__value" />
@@ -26,7 +27,6 @@
         <option value="region/europe">Europe</option>
         <option value="region/oceania">Oceania</option>
       </select>
-      <!-- <button type="submit" class="submit">Search</button> -->
     </form>
     <div class="loader">
       loading...
