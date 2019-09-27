@@ -90,6 +90,7 @@ function display(data) {
     borderCountries.push(countrie);
   });
   const border = document.querySelector(".border-countries");
+  // eslint-disable-next-line no-plusplus
   for (let i = 0; i < borderCountries.length; i++) {
     const singleBorder = document.createElement("li");
     singleBorder.innerHTML = borderCountries[i];
