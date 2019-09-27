@@ -111,7 +111,6 @@ html.transition *:after {
 .country__img {
   display: block;
   width: 100%;
-  height: 200px;
   flex: 0 0 40%;
 }
 
