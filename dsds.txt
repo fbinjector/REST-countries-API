@@ -1,0 +1,53 @@
+const readMore = document.querySelector(".show-hide");
+const hidedInfo = document.querySelector(".country__info--hided");
+readMore.addEventListener("click", function() {
+  hidedInfo.classList.add("showItem");
+});
+
+.show-hide {
+  display: block;
+  font-size: 1rem;
+  text-transform: capitalize;
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.country__info--hided {
+  height: 0;
+  overflow: hidden;
+  transition: height .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.country:hover .country__info--hided {
+  height: 100px;
+}
+
+<article class="country">
+        <img
+          class="country__img"
+          src="https://restcountries.eu/data/afg.svg"
+          alt="flag"
+        />
+        <div class="country__info">
+          <h3 class="country__name">${name}</h3>
+          <h3>
+            population: <span class="country__population">${population}</span>
+          </h3>
+          <h3>region: <span class="country__region">${region}</span></h3>
+          <h3>capital: <span class="country__capital">${capital}</span></h3>
+          <button class="show-hide">see more</button>
+          <div class="country__info--hided">
+            <h3>
+              currencie: <span class="country__currencie">${currencie}</span>
+            </h3>
+            <h3>
+              languages: <span class="country__languages">${languages}</span>
+            </h3>
+            <h3>
+              to level domain: <span class="country__domain">${domain}</span>
+            </h3>
+          </div>
+        </div>
+      </article>
