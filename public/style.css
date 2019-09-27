@@ -120,6 +120,26 @@ body {
   color: var(--Dark-Gray);
 }
 
+.show-hide {
+  display: block;
+  font-size: 1rem;
+  text-transform: capitalize;
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.country__info--hided {
+  height: 0;
+  overflow: hidden;
+  transition: height .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.country:hover .country__info--hided {
+  height: 100px;
+}
+
 @media screen and (min-width: 600px) {
   .countries {
     display: flex;

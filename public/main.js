@@ -6,9 +6,9 @@ const region = document.querySelector(".region");
 const loader = document.querySelector(".loader");
 const container = document.querySelector(".countries");
 
-document.addEventListener("DOMContentLoaded", function() {
-  fetchi("https://restcountries.eu/rest/v2/all");
-});
+// document.addEventListener("DOMContentLoaded", function() {
+//   fetchi("https://restcountries.eu/rest/v2/all");
+// });
 
 form.addEventListener("submit", function(e) {
   e.preventDefault();
