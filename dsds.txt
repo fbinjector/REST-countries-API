@@ -1,8 +1,4 @@
-const readMore = document.querySelector(".show-hide");
-const hidedInfo = document.querySelector(".country__info--hided");
-readMore.addEventListener("click", function() {
-  hidedInfo.classList.add("showItem");
-});
+
 
 
 
