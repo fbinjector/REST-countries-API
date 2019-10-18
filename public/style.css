@@ -80,7 +80,7 @@ html.transition *:after {
 
 .input {
   font-size: 1.5rem;
-  width: 100%;
+  width: 80%;
   height: 3rem;
   padding: .2rem;
   background-color: var(--primary);
@@ -90,6 +90,7 @@ html.transition *:after {
 
 .match-list {
   list-style: none;
+  width: 80%;
   color: var(--tertiary);
   font-size: 1.2rem;
 }

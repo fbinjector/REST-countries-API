@@ -123,28 +123,28 @@ function display(data) {
   });
 }
 
-// function displayAll(result) {
-//   loader.classList.remove("showItem");
-//   let info = "";
-//   result.forEach(data => {
-//     const { name, flag, population, region, capital } = data;
+function displayAll(result) {
+  loader.classList.remove("showItem");
+  let info = "";
+  result.forEach(data => {
+    const { name, flag, population, region, capital } = data;
 
-//     info += `<article class="country">
-//       <img
-//         class="country__img"
-//         src="${flag}"
-//         alt="${name} flag"
-//       />
-//       <div class="country__info">
-//         <h3 class="country__name">${name}</h3>
-//         <h3>population: <span class="country__population">${population}</span></h3>
-//         <h3>region: <span class="country__region">${region}</span></h3>
-//         <h3>capital: <span class="country__capital">${capital}</span></h3>
-//       </div>
-//     </article>`;
-//     container.innerHTML = info;
-//   });
-// }
+    info += `<article class="country">
+      <img
+        class="country__img"
+        src="${flag}"
+        alt="${name} flag"
+      />
+      <div class="country__info">
+        <h3 class="country__name">${name}</h3>
+        <h3>population: <span class="country__population">${population}</span></h3>
+        <h3>region: <span class="country__region">${region}</span></h3>
+        <h3>capital: <span class="country__capital">${capital}</span></h3>
+      </div>
+    </article>`;
+    container.innerHTML = info;
+  });
+}
 
 const search = document.querySelector(".input");
 const list = document.querySelector(".match-list");
