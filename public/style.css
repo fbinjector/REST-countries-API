@@ -30,7 +30,7 @@ html.transition,
 html.transition *,
 html.transition *:before,
 html.transition *:after {
-  transition: all 750ms !important;
+  transition: all .3s !important;
   transition-delay: 0 !important;
 }
 
@@ -177,7 +177,6 @@ html.transition *:after {
     height: 350px;
     max-width: 1000px;
     flex-direction: row;
-    background: transparent;
   }
 
   .info .country__img {
