@@ -123,25 +123,76 @@ function display(data) {
   });
 }
 
-function displayAll(result) {
-  loader.classList.remove("showItem");
-  let info = "";
-  result.forEach(data => {
-    const { name, flag, population, region, capital } = data;
+// function displayAll(result) {
+//   loader.classList.remove("showItem");
+//   let info = "";
+//   result.forEach(data => {
+//     const { name, flag, population, region, capital } = data;
 
-    info += `<article class="country">
-      <img
-        class="country__img"
-        src="${flag}"
-        alt="${name} flag"
-      />
-      <div class="country__info">
-        <h3 class="country__name">${name}</h3>
-        <h3>population: <span class="country__population">${population}</span></h3>
-        <h3>region: <span class="country__region">${region}</span></h3>
-        <h3>capital: <span class="country__capital">${capital}</span></h3>
-      </div>
-    </article>`;
-    container.innerHTML = info;
+//     info += `<article class="country">
+//       <img
+//         class="country__img"
+//         src="${flag}"
+//         alt="${name} flag"
+//       />
+//       <div class="country__info">
+//         <h3 class="country__name">${name}</h3>
+//         <h3>population: <span class="country__population">${population}</span></h3>
+//         <h3>region: <span class="country__region">${region}</span></h3>
+//         <h3>capital: <span class="country__capital">${capital}</span></h3>
+//       </div>
+//     </article>`;
+//     container.innerHTML = info;
+//   });
+// }
+
+const search = document.querySelector(".input");
+const list = document.querySelector(".match-list");
+
+// Get states
+const getStates = async () => {
+  const response = await fetch("https://restcountries.eu/rest/v2/all");
+  countries = await response.json();
+};
+
+// Filter states
+const searchStates = input => {
+  // Get matches to current text input
+  let matches = countries.filter(country => {
+    const regex = new RegExp(`^${input}`, "gi");
+    return country.name.match(regex);
   });
-}
+
+  // Clear when input or matches are empty
+  if (input.length === 0) {
+    matches = [];
+    list.innerHTML = "";
+  }
+
+  outputHtml(matches);
+};
+
+// Show results in HTML
+const outputHtml = matches => {
+  if (matches.length > 0) {
+    const html = matches.map(match => `<li class="name">${match.name}</li>`).join("");
+    list.innerHTML = html;
+
+    // add the country name to the input
+    const countryNames = Array.from(document.querySelectorAll(".name"));
+    countryNames.forEach(country => {
+      country.addEventListener("click", () => {
+        search.value = country.textContent;
+        list.innerHTML = "";
+        search.focus();
+      });
+    });
+  }
+};
+
+window.addEventListener("DOMContentLoaded", getStates);
+search.addEventListener("input", () => searchStates(search.value));
+
+window.addEventListener("keypress", e => {
+  console.log(e);
+});

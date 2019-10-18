@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-theme="" lang="en">
+<html data-theme="dark" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,7 +18,10 @@
       <label class="modeLabel" for="theme">dark mode</label>
     </nav>
     <form action="" class="input__container">
-      <input type="text" class="input country__value" />
+      <div class="search">
+        <input type="text" class="input country__value" />
+        <ul class="match-list"></ul>
+      </div>
       <select name="region" class="region">
         <option value="all">All</option>
         <option value="region/africa">Africa</option>
